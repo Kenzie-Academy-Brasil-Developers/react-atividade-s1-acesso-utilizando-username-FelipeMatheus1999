@@ -1,22 +1,25 @@
 import { useState } from "react";
 
 const GetUserComponent = ({ setUser, setIsLoggedIn }) => {
-  const [userInput, setUserInput] = useState("");
 
-  const HandleLogin = ({ userInput }) => {
-    setUser(userInput);
+  const HandleLogin = () => {
     setIsLoggedIn(true);
   };
 
+  const formSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit= {formSubmit}>
       <input
         type="text"
-        value={userInput}
-        onChange={(event) => setUserInput(event.target.value)}
+        placeholder="write your name"
+        onChange={(event) => setUser(event.target.value)}
+        className="input"
       ></input>
       <br></br>
-      <button onClick={() => HandleLogin(userInput)} className="button">
+      <button onClick={() => HandleLogin()} className="button">
         Access with the name
       </button>
     </form>

@@ -1,11 +1,14 @@
-const WelcomePage = ({ user, setIsLoggedIn }) => {
-  const HandleLogout = () => setIsLoggedIn(false);
+const WelcomePage = ({ user, setIsLoggedIn, setUser }) => {
+  const HandleLogout = (  ) => {
+    setIsLoggedIn(false);
+    setUser("");
+}
 
   return (
     <>
       <span>Welcome {user}!</span>
       <button onClick={HandleLogout} className="button">
-        logout
+        Logout
       </button>
     </>
   );

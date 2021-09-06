@@ -1,25 +1,25 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react";
 import WelcomePage from "./components/WelcomePage"
 import GetUserComponent from './components/GetUserComponent';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const user = "";
+  const [user, setUser] = useState("");
 
   return (
     <div className="App">
       <div className="App-header">
         {
-          !isLoggedIn? (
+          isLoggedIn? (
             <WelcomePage 
             user={user}
             setIsLoggedIn={setIsLoggedIn}
+            setUser={setUser}
             />  
           ) : (
             <GetUserComponent 
-            setUser={user}
+            setUser={setUser}
             setIsLoggedIn={setIsLoggedIn}
             />
           )
